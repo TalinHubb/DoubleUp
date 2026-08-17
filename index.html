@@ -1,51 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Double Up</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101511">
+  <title>Double Up Smoke Shop | Your neighborhood, stocked.</title>
+  <meta name="description" content="Explore products, store hours, rewards, and pickup availability across every Double Up location.">
+  <meta property="og:title" content="Double Up — Your neighborhood, stocked.">
+  <meta property="og:description" content="Browse local availability, earn rewards, and reserve for pickup at eight neighborhood locations.">
+  <meta property="og:image" content="images/header.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Double Up — Your neighborhood, stocked.">
+  <meta name="twitter:description" content="Browse local availability, earn rewards, and reserve for pickup at eight neighborhood locations.">
+  <meta name="twitter:image" content="images/header.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="demo-bar"><span>Concept preview</span> Sample inventory &amp; locations — no orders or personal data are submitted</div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Double Up home"><span class="brand-mark">DU</span><span>DOUBLE UP<small>SMOKE SHOP</small></span></a>
+    <nav aria-label="Main navigation"><a href="#shop">Shop</a><a href="#locations">Locations</a><a href="#rewards">Rewards</a><a href="#system">For managers</a></nav>
+    <div class="header-actions">
+      <button class="location-button" id="location-button" type="button"><span class="pin">●</span><span><small>Shopping at</small><strong id="header-location">Northside</strong></span></button>
+      <button class="cart-button" id="cart-button" type="button" aria-label="Open pickup bag">Bag <span id="cart-count">0</span></button>
+    </div>
+  </header>
 
-<header class="hero">
-  <div class="hero-inner">
-    <img src="images/header.jpg" class="hero-img" alt="Store Banner">
-  </div>
-</header>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">8 neighborhood locations</p><h1>Your favorites.<br><em>Right around the corner.</em></h1><p class="hero-lede">Browse local availability, find your closest store, and build a pickup order—all in one place.</p><div class="hero-actions"><a class="button primary" href="#shop">Shop local inventory</a><a class="button secondary" href="#locations">Find a store</a></div><div class="trust-row"><span>Pickup today</span><span>Local rewards</span><span>8 convenient stores</span></div></div>
+      <div class="hero-art" aria-label="Double rewards on accessories this week"><div class="feature-card"><span>THIS WEEK</span><strong>DOUBLE<br>REWARDS</strong><p>On all accessories</p></div><div class="floating-chip">Open until 11 PM</div><div class="hero-stamp">21+<small>ADULTS ONLY</small></div></div>
+    </section>
+    <section class="service-strip" aria-label="Store benefits"><div><b>01</b><span><strong>Browse before you go</strong><small>See availability at your store</small></span></div><div><b>02</b><span><strong>Reserve for pickup</strong><small>We’ll have it ready at the counter</small></span></div><div><b>03</b><span><strong>Earn every visit</strong><small>One phone number, all locations</small></span></div></section>
 
-<div class="header-actions">
-  <button onclick="toggleCart()">🛒 Cart</button>
-</div>
+    <section class="shop-section" id="shop">
+      <div class="section-heading"><div><p class="eyebrow">Shop <span id="shop-location">Northside</span></p><h2>What are you looking for?</h2></div><button class="text-button change-location" type="button">Change store →</button></div>
+      <div class="shop-tools"><div class="category-tabs" id="category-tabs" role="tablist" aria-label="Product categories"></div><label class="search"><span>⌕</span><input id="product-search" type="search" placeholder="Search products" aria-label="Search products"></label></div>
+      <div class="product-grid" id="product-grid"></div><p class="empty-state" id="empty-products" hidden>No sample products match that search.</p>
+    </section>
 
-<nav>
-  <a href="#" onclick="filterCategory('cigarettes'); return false;">Cigarettes</a>
-  <a href="#" onclick="filterCategory('cigars'); return false;">Cigars</a>
-  <a href="#" onclick="filterCategory('flower'); return false;">Flower</a>
-  <a href="#" onclick="filterCategory('vapes'); return false;">Vapes</a>
-  <a href="#" onclick="filterCategory('liquids'); return false;">E-Liquids</a>
-  <a href="#" onclick="filterCategory('accessories'); return false;">Accessories</a>
-</nav>
+    <section class="rewards-section" id="rewards"><div class="rewards-card">
+      <div class="rewards-copy"><p class="eyebrow light">Double Up Rewards</p><h2>Every visit<br>adds up.</h2><p>Join once with your phone number. Earn points at every location and unlock members-only offers.</p><ul><li>$1 spent = 1 point</li><li>Birthday bonus</li><li>Members-only pricing</li></ul></div>
+      <form class="phone-card" id="rewards-form"><span class="rewards-badge">DU</span><p>JOIN IN SECONDS</p><label for="rewards-phone">Mobile number</label><input id="rewards-phone" type="tel" inputmode="tel" placeholder="(555) 555-5555" autocomplete="tel"><button class="button lime" type="submit">Preview membership</button><small>Demo only. Your number is not stored or submitted. A real program would require explicit SMS consent and privacy terms.</small><div class="reward-result" id="reward-result" hidden><b>Welcome to the club.</b><span>Your sample balance: 250 points</span></div></form>
+    </div></section>
 
-<div class="container">
-  <h2>Products</h2>
-  <div class="products" id="product-list"></div>
-</div>
+    <section class="locations-section" id="locations"><div class="section-heading"><div><p class="eyebrow">Always nearby</p><h2>Eight stores. One experience.</h2></div><p class="section-note">Sample location information for the concept.</p></div><div class="locations-grid" id="locations-grid"></div></section>
 
-<div class="cart" id="cart">
-  <h2>Cart</h2>
-  <ul id="cart-items"></ul>
-  <p>Total: $<span id="total">0</span></p>
+    <section class="system-section" id="system"><div class="system-intro"><p class="eyebrow light">The bigger picture</p><h2>One system behind every store.</h2><p>This customer experience can grow into a central operating system for inventory, locations, pickup orders, promotions, and loyalty—without rebuilding the storefront.</p><button class="button lime" id="manager-demo" type="button">Preview manager view</button></div><div class="dashboard-card" aria-label="Sample manager dashboard"><div class="dashboard-top"><span><i></i> Double Up Control Center</span><small>All locations</small></div><div class="metric-row"><div><small>Pickup requests</small><strong>24</strong><em>+8 today</em></div><div><small>Reward members</small><strong>4,821</strong><em>+12.4%</em></div><div><small>Stock alerts</small><strong>7</strong><em class="warn">Needs review</em></div></div><div class="dashboard-list"><div><b>Recent activity</b><span>LIVE</span></div><p><i class="green-dot"></i> West Loop <span>Pickup #1048 ready</span></p><p><i class="orange-dot"></i> Lakeside <span>3 low-stock products</span></p><p><i class="green-dot"></i> Northside <span>New loyalty member</span></p></div></div></section>
+  </main>
 
-  <h3>Loyalty Program</h3>
-  <input type="text" id="phone" placeholder="Enter phone number" />
-
-  <button onclick="checkout()">Checkout (Pickup)</button>
-</div>
-
-<div id="overlay" class="overlay" onclick="toggleCart()"></div>
-
-<script src="products.js"></script>
-<script src="script.js"></script>
+  <footer><div class="brand footer-brand"><span class="brand-mark">DU</span><span>DOUBLE UP<small>SMOKE SHOP</small></span></div><p>Adults 21+ only. Please enjoy responsibly.</p><p>© <span id="year"></span> Double Up. Concept website.</p></footer>
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer cart-drawer" id="cart-drawer" aria-hidden="true" aria-label="Pickup bag"><div class="drawer-head"><div><p class="eyebrow">Pickup at <span id="cart-location">Northside</span></p><h2>Your bag</h2></div><button class="icon-button close-drawer" aria-label="Close bag">×</button></div><div id="cart-items" class="cart-items"></div><div class="cart-empty" id="cart-empty"><span>DU</span><h3>Your bag is empty</h3><p>Add a few products to build a sample pickup order.</p><button class="button primary close-drawer">Start shopping</button></div><div class="cart-summary" id="cart-summary" hidden><div><span>Estimated total</span><strong id="cart-total">$0.00</strong></div><p>Final price and availability are confirmed in store.</p><button class="button primary full" id="pickup-button">Preview pickup request</button></div></aside>
+  <div class="modal" id="location-modal" hidden role="dialog" aria-modal="true" aria-labelledby="location-title"><div class="modal-card location-modal-card"><button class="icon-button close-location" aria-label="Close location selector">×</button><p class="eyebrow">Choose your store</p><h2 id="location-title">Shop local availability</h2><p>Sample inventory and pickup details change with your selection.</p><div class="location-options" id="location-options"></div></div></div>
+  <div class="modal age-modal" id="age-modal" hidden role="dialog" aria-modal="true" aria-labelledby="age-title"><div class="age-card"><span class="age-logo">DU</span><p class="eyebrow">Welcome to Double Up</p><h2 id="age-title">Are you 21 or older?</h2><p>You must be of legal age to view this demonstration storefront.</p><button class="button primary full" id="age-confirm">Yes, I’m 21+</button><button class="exit-link" id="age-exit">No, exit</button><small>This age gate is part of the concept experience and does not constitute legal compliance.</small></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="products.js"></script><script src="script.js"></script>
 </body>
 </html>
+
